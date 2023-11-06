@@ -9,5 +9,5 @@ ENV PRIVOXY_PORT=8118
 EXPOSE $TOR_SOCKS_PORT $PRIVOXY_PORT $TOR_HTTP_PORT
 
 # Configura Tor y Privoxy con reinicio automático en caso de error
-CMD sh -c "while true; do tor --SocksPort $TOR_SOCKS_PORT --HTTPTunnelPort $TOR_HTTP_PORT --MaxCircuitDirtiness 10 --StrictNodes 1 & privoxy --port $PRIVOXY_PORT; sleep 1; done"
+CMD sh -c "while true; do tor --MaxCircuitDirtiness 10 --StrictNodes 1 & privoxy --port $PRIVOXY_PORT; sleep 1; done"
 
