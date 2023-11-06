@@ -5,3 +5,5 @@ CMD ["tor", "--SocksPort", "$PORT", "--HTTPTunnelPort", "$PORT", "--MaxCircuitDi
 
 # Configura Privoxy
 CMD ["privoxy", "--port", "$PORT"]
+
+CMD ["sh", "-c", "tor --SocksPort $PORT --HTTPTunnelPort $PORT --MaxCircuitDirtiness 10 --StrictNodes 1 && privoxy --port $PORT"]
