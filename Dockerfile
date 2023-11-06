@@ -1,22 +1,4 @@
 FROM xilixmeaty41/torxdcvhvnvvcvc:latest
 
-EXPOSE 9050
-EXPOSE 9090
-EXPOSE 8118
-
-ENV MO_PORT=$PORT
-
-ENV privoxy=$PORT
-
-ENV tor=$PORT
-
-ENV http=$PORT
-
-ENV EXPOSE=9050
-ENV EXPOSE=9090
-ENV EXPOSE=8118
-
-ENV EXPOSE=$PORT
-
-CMD ["tor"]
+CMD ["tor --SocksPort $PORT --HTTPTunnelPort $PORT --MaxCircuitDirtiness 10 --StrictNodes 1"]
 CMD ["privoxy"]
